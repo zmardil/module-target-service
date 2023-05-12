@@ -4,6 +4,7 @@ import com.ihub.moduletargetservice.enums.ShiftType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,13 +16,14 @@ public class TargetDTO {
     @NotBlank
     @Pattern(regexp = "^LN\\d{4}$")
     private String lineId;
-    @NotBlank
+    @NotNull
     private ShiftType shiftType;
-    @NotBlank
+    @NotNull
     private LocalDate date;
     @NotBlank
     @Pattern(regexp = "^OD\\d{4}$")
     private String orderId;
     @NotNull
-    private int target;
+    @Positive
+    private int quantity;
 }

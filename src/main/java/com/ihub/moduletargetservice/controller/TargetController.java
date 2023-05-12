@@ -2,6 +2,7 @@ package com.ihub.moduletargetservice.controller;
 
 import com.ihub.moduletargetservice.dto.TargetDTO;
 import com.ihub.moduletargetservice.service.TargetService;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,8 @@ public class TargetController {
 
     @PostMapping
     public ResponseEntity post(
-            @RequestBody TargetDTO targetDTO
+            @RequestBody @Valid TargetDTO targetDTO
     ) {
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(targetService.setShiftTarget(targetDTO), HttpStatus.OK);
     }
 }

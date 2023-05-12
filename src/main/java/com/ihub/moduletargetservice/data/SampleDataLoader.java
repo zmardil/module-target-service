@@ -33,7 +33,7 @@ public class SampleDataLoader implements CommandLineRunner {
                 )
         );
 
-        Order order = Order.builder().id("OD00001").quantity(200).build();
+        Order order = Order.builder().id("OD0001").quantity(200).build();
 
         orderRepository.save(order);
 

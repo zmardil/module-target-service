@@ -20,7 +20,7 @@ public class Mapper {
 
     public TargetDTO toDTO(Target target) {
         return TargetDTO.builder()
-                .target(target.getQuantity())
+                .quantity(target.getQuantity())
                 .lineId(target.getShift().getLineId())
                 .shiftType(target.getShift().getShiftType())
                 .orderId(target.getOrder().getId())
@@ -45,7 +45,7 @@ public class Mapper {
                 .id(shift.getId())
                 .order(order)
                 .shift(shift)
-                .quantity(targetDTO.getTarget())
+                .quantity(targetDTO.getQuantity())
                 .build();
     }
 
