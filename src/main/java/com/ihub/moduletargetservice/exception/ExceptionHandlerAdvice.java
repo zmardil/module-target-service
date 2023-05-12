@@ -19,8 +19,8 @@ public class ExceptionHandlerAdvice {
         return new ResponseEntity(apiError, apiError.getStatus());
     }
 
-    @ExceptionHandler(ResourceAlreadyExistsException.class)
-    public ResponseEntity<ApiError> handleResourceAlreadyExistsException(ResourceAlreadyExistsException ex, HttpServletRequest request) {
+    @ExceptionHandler(value = {ResourceAlreadyExistsException.class, IllegalArgumentException.class })
+    public ResponseEntity<ApiError> handleBadRequestExceptions(RuntimeException ex, HttpServletRequest request) {
         ApiError apiError = new ApiError(
                 request.getRequestURI(),
                 HttpStatus.BAD_REQUEST,

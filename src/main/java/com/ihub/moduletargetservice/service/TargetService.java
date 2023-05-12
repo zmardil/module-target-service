@@ -22,18 +22,19 @@ public class TargetService {
     private final Mapper mapper;
 
     public Target setShiftTarget(TargetDTO targetDTO) {
+
         Target target = mapper.toEntity(targetDTO);
 
         if (targetRepository.existsById(target.getId()))
-            throw new ResourceAlreadyExistsException("Target already exists.");
+            throw new ResourceAlreadyExistsException("Target already assigned to shift.");
 
         List<Target> shiftsByOrderId = targetRepository.findAllByOrderId(target.getOrder().getId());
 
         int totalTarget = shiftsByOrderId.stream().mapToInt(Target::getQuantity).sum();
 
-        target.setQuantity(
-                Math.max(0, Math.min(target.getOrder().getQuantity() - totalTarget, targetDTO.getTarget()))
-        );
+        int allocatableQuantity = target.getOrder().getQuantity() - totalTarget;
+
+        if(target.getQuantity() > 0 && target.getQuantity() > allocatableQuantity) throw new IllegalArgumentException("Target quantity exceeds allocatable quantity");
 
         return targetRepository.save(target);
     }
