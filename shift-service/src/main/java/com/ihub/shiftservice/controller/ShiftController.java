@@ -4,6 +4,7 @@ package com.ihub.shiftservice.controller;
 import com.ihub.shiftservice.dto.ShiftDTO;
 import com.ihub.shiftservice.service.ShiftService;
 import com.ihub.shiftservice.entity.Shift;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class ShiftController {
     private final ShiftService shiftService;
 
     @PostMapping
-    public ResponseEntity<Shift> post(@RequestBody ShiftDTO shiftDTO) {
+    public ResponseEntity<Shift> post(@RequestBody @Valid ShiftDTO shiftDTO) {
         return new ResponseEntity<>(shiftService.createShift(shiftDTO), HttpStatus.CREATED);
     }
 
