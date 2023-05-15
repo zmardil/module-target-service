@@ -1,6 +1,6 @@
 package com.ihub.orderservice.controller;
 
-import com.ihub.orderservice.entity.Order;
+import com.ihub.orderservice.event.Order;
 import com.ihub.orderservice.entity.OrderEntity;
 import com.ihub.orderservice.kafka.OrderProducer;
 import com.ihub.orderservice.repository.OrderRepository;

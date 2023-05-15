@@ -2,7 +2,7 @@ package com.ihub.orderservice.kafka;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ihub.orderservice.entity.Order;
+import com.ihub.orderservice.event.Order;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

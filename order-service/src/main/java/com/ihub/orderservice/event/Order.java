@@ -1,4 +1,4 @@
-package com.ihub.orderservice.entity;
+package com.ihub.orderservice.event;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
