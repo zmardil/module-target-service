@@ -1,40 +1,37 @@
 package com.ihub.orderservice.controller;
 
+import com.ihub.orderservice.dto.OrderDTO;
 import com.ihub.orderservice.entity.Order;
-import com.ihub.orderservice.entity.OrderEntity;
-import com.ihub.orderservice.kafka.OrderProducer;
-import com.ihub.orderservice.repository.OrderRepository;
+import com.ihub.orderservice.service.OrderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequiredArgsConstructor
+@RequestMapping("/orders")
+@CrossOrigin(origins = "${cors.allowed.origins}")
 public class OrderController {
 
+    private  final OrderService orderService;
 
-    private OrderProducer orderProducer;
-    private OrderRepository orderRepository;
-
-    public OrderController(OrderProducer orderProducer, OrderRepository orderRepository) {
-        this.orderProducer = orderProducer;
-        this.orderRepository = orderRepository;
+    @PostMapping
+    public ResponseEntity<Order> post(@RequestBody OrderDTO orderDTO) {
+        return new ResponseEntity<>(orderService.createOrder(orderDTO), HttpStatus.OK);
     }
 
-
-    @PostMapping("/orders")
-    public String placeOrder(@RequestBody OrderEntity orderEntity){
-
-        orderEntity.setCreatedAt(LocalDateTime.now());
-        orderRepository.save(orderEntity);
-
-        Order orderEvent = new Order();
-        orderEvent.setOrderId(orderEntity.getOrderId());
-        orderEvent.setQty(orderEntity.getQty());
-
-        orderProducer.sendMessage(orderEvent,"create");
-
-        return "Order placed sucessfully";
+    @GetMapping
+    public ResponseEntity<List<Order>> get() {
+        return new ResponseEntity<>(orderService.getAllOrders(), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Order> get(@PathVariable String id) {
+        return new ResponseEntity<>(orderService.getOrderById(id), HttpStatus.OK);
+    }
+
 }
 

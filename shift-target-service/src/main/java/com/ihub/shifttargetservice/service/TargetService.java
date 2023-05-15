@@ -15,8 +15,6 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class TargetService {
-    private final ShiftRepository shiftRepository;
-    private final OrderRepository orderRepository;
     private final TargetRepository targetRepository;
 
     private final Mapper mapper;

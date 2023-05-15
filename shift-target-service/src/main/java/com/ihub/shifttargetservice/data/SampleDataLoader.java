@@ -17,10 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SampleDataLoader implements CommandLineRunner {
 
-    private final OrderRepository orderRepository;
     private final ShiftRepository shiftRepository;
-
-    private final TargetRepository targetRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -32,11 +29,6 @@ public class SampleDataLoader implements CommandLineRunner {
                         Shift.builder().lineId("LN0002").shiftType(ShiftType.A).date(LocalDate.now()).build()
                 )
         );
-
-        Order order = Order.builder().id("OD0001").quantity(200).build();
-
-        orderRepository.save(order);
-
 
     }
 
