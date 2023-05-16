@@ -1,10 +1,7 @@
 package com.ihub.shiftservice.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,6 +28,7 @@ public class Shift {
     )
     private String id;
     private String lineId;
+    @Enumerated(EnumType.STRING)
     private ShiftType shiftType;
     private LocalDate date;
     private LocalTime startTime;
