@@ -2,7 +2,7 @@ package com.ihub.shiftservice.kafka;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ihub.shiftservice.shift.ShiftEvent;
+import com.ihub.shiftservice.event.ShiftEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;

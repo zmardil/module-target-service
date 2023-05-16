@@ -36,7 +36,7 @@ public class OrderConsumer {
             if (eventType.equals("create")) {
                 orderService.saveOrder(order);
             } else if (eventType.equals("update")) {
-                // TODO: update order logic
+                // ODO: update order logic
             } else if (eventType.equals("delete")) {
                 // TODO: delete order logic
             } else {

@@ -1,9 +1,6 @@
-package com.ihub.shiftservice.shift;
+package com.ihub.shiftservice.event;
 
 import com.ihub.shiftservice.entity.ShiftType;
-import com.ihub.shiftservice.validations.EnumConstraint;
-import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 

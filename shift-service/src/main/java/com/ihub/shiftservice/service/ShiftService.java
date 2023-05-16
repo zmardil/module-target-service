@@ -5,7 +5,7 @@ import com.ihub.shiftservice.entity.Shift;
 import com.ihub.shiftservice.exception.ResourceNotFoundException;
 import com.ihub.shiftservice.kafka.ShiftProducer;
 import com.ihub.shiftservice.repository.ShiftRepository;
-import com.ihub.shiftservice.shift.ShiftEvent;
+import com.ihub.shiftservice.event.ShiftEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
