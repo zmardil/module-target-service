@@ -36,9 +36,9 @@ public class OrderConsumer {
             if (eventType.equals("create")) {
                 orderService.saveOrder(order);
             } else if (eventType.equals("update")) {
-                // update order logic
-            } else if (eventType.equals("cancel")) {
-                // cancel order logic
+                // TODO: update order logic
+            } else if (eventType.equals("delete")) {
+                // TODO: delete order logic
             } else {
                 log.warn("Unknown event type: " + eventType);
             }
