@@ -19,7 +19,7 @@ public class Target {
 
     @Id
     @JsonProperty("shiftId")
-    private long id;
+    private String id;
 
     private int quantity;
 

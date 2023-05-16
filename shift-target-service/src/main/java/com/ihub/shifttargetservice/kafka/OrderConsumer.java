@@ -24,7 +24,7 @@ public class OrderConsumer {
 
     private final ObjectMapper mapper;
 
-    @KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "${spring.kafka.consumer.group-id}")
+    @KafkaListener(topics = "${spring.kafka.topic.order}", groupId = "${spring.kafka.consumer.group-id}")
     public void consume(@Payload String payload, @Header("event-type") String eventType) {
         log.info(String.format("Order event received in stock service => %s", payload));
 

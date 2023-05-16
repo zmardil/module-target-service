@@ -1,4 +1,4 @@
-package com.ihub.shifttargetservice.kafka;
+package com.ihub.shifttargetservice.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.springframework.context.annotation.Bean;

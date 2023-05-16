@@ -22,9 +22,8 @@ import java.time.LocalDate;
 )})
 public class Shift {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    private Long id;
+    private String id;
 
     private String lineId;
 
