@@ -33,4 +33,6 @@ public class ShiftController {
     public ResponseEntity<Shift> get(@PathVariable String id) {
         return new ResponseEntity<>(shiftService.getShiftById(id), HttpStatus.OK);
     }
+
+    // TODO: Implement delete request, if required.
 }
